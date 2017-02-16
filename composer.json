@@ -1,0 +1,19 @@
+{
+  "name": "taylornetwork/api",
+  "description": "API calling functionality",
+  "require": {
+    "php": ">=5.4.0",
+    "laravel/framework": "^5.4"
+  },
+  "authors": [
+    {
+      "name": "Sam Taylor",
+      "email": "sam@taylornetwork.ca"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "TaylorNetwork\\API\\": "src/"
+    }
+  }
+}

@@ -28,5 +28,11 @@ class APIServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__.'/config/api.php', 'api'
         );
+        
+        $this->commands([ Commands\DriverMakeCommand::class ]);
+
+        $this->app->bind('API', function () {
+            return new API();
+        });
     }
 }

@@ -32,6 +32,7 @@ class API
      */
     public $body;
 
+    
     /**
      * The contents of the request
      * 
@@ -91,6 +92,8 @@ class API
      */
     public function buildURL($page)
     {
+        // @todo find a better way to make sure there is a '/' between $base and $page.
+        
         $this->checkForDriver();
         
         $base = $this->driver->baseURL;
@@ -99,15 +102,20 @@ class API
         {
             $base = 'http://' . $base;
         }
+
+        if (substr($base, -1, 1) == '/')
+        {
+            $base = substr($base, 0, strlen($base)-1);
+        }
         
         $page = $this->driver->getPage($page);
         
-        if (substr($page, 0, 1) != '/')
+        if (substr($page, 0, 1) == '/')
         {
-            $page = '/' . $page;
+            $page = substr($page, 1, strlen($page));
         }
         
-        return $base . $page;
+        return $base . '/' . $page;
     }
 
     /**

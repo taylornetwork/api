@@ -1,0 +1,26 @@
+<?php
+
+namespace DummyNamespace;
+
+use TaylorNetwork\API\Drivers\Driver;
+
+/**
+ * API Driver Class
+ *
+ * This will be used on API calls, it is instantiated on API::DummyClass() calls automatically.
+ * You can override inherited properties and methods from the TaylorNetwork\API\Drivers\Driver class.
+ * See the documentation at https://github.com/taylornetwork/api for details.
+ */
+class DummyClass extends Driver
+{
+    /**
+     * The API base URL
+     *
+     * This must be set to a non-empty value.
+     *
+     * Example: 'example.com/api'
+     *
+     * @var string
+     */
+    public $baseURL = '';
+}

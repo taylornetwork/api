@@ -23,4 +23,20 @@ class DummyClass extends Driver
      * @var string
      */
     public $baseURL = '';
+
+    /**
+     * API Page Aliases
+     *
+     * You can add aliases to access pages easier.
+     *
+     * Note: if you are using this with TaylorNetwork\ApiModel you need to set a page for each of these.
+     *
+     * @var array
+     */
+    public $pageAliases = [
+        'find' => '',
+        'create' => '',
+        'update' => '',
+        'destroy' => '',
+    ];
 }

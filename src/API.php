@@ -54,14 +54,14 @@ class API
      * @return mixed
      * @throws APIException
      */
-    public function decodeContent()
+    public function decodeContent($asArray = false)
     {
         if(!isset($this->content))
         {
             throw new APIException('You need to make a request first!');
         }
         
-        return $this->decode($this->content);
+        return $this->decode($this->content, $asArray);
     }
 
     /**
@@ -70,13 +70,13 @@ class API
      * @return mixed
      * @throws APIException
      */
-    public function recursiveDecodeContent()
+    public function recursiveDecodeContent($asArray = false)
     {
-        $content = $this->decodeContent();
+        $content = $this->decodeContent($asArray);
         
         foreach ($content as $key => $value)
         {
-            $content[$key] = $this->decode($value);
+            $content[$key] = $this->decode($value, $asArray);
         }
         
         return $content;
@@ -236,9 +236,9 @@ class API
      * @param $data
      * @return mixed
      */
-    protected function decode($data)
+    protected function decode($data, $asArray = false)
     {
-        return json_decode($data);
+        return json_decode($data, $asArray);
     }
 
 }
